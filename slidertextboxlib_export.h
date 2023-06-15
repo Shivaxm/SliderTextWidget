@@ -1,0 +1,41 @@
+#ifndef SLIDERTEXTBOXLIB_EXPORT_H
+#define SLIDERTEXTBOXLIB_EXPORT_H
+
+#ifdef SLIDERTEXTBOXLIB_STATIC_DEFINE
+#  define SLIDERTEXTBOXLIB_EXPORT
+#  define SLIDERTEXTBOXLIB_NO_EXPORT
+#else
+#  ifndef SLIDERTEXTBOXLIB_EXPORT
+#    ifdef SliderTextBoxLib_EXPORTS
+/* We are building this library */
+#      define SLIDERTEXTBOXLIB_EXPORT __attribute__((visibility("default")))
+#    else
+/* We are using this library */
+#      define SLIDERTEXTBOXLIB_EXPORT __attribute__((visibility("default")))
+#    endif
+#  endif
+
+#  ifndef SLIDERTEXTBOXLIB_NO_EXPORT
+#    define SLIDERTEXTBOXLIB_NO_EXPORT __attribute__((visibility("hidden")))
+#  endif
+#endif
+
+#ifndef SLIDERTEXTBOXLIB_DEPRECATED
+#  define SLIDERTEXTBOXLIB_DEPRECATED __attribute__ ((__deprecated__))
+#endif
+
+#ifndef SLIDERTEXTBOXLIB_DEPRECATED_EXPORT
+#  define SLIDERTEXTBOXLIB_DEPRECATED_EXPORT SLIDERTEXTBOXLIB_EXPORT SLIDERTEXTBOXLIB_DEPRECATED
+#endif
+
+#ifndef SLIDERTEXTBOXLIB_DEPRECATED_NO_EXPORT
+#  define SLIDERTEXTBOXLIB_DEPRECATED_NO_EXPORT SLIDERTEXTBOXLIB_NO_EXPORT SLIDERTEXTBOXLIB_DEPRECATED
+#endif
+
+#if 0 /* DEFINE_NO_DEPRECATED */
+#  ifndef SLIDERTEXTBOXLIB_NO_DEPRECATED
+#    define SLIDERTEXTBOXLIB_NO_DEPRECATED
+#  endif
+#endif
+
+#endif /* SLIDERTEXTBOXLIB_EXPORT_H */
